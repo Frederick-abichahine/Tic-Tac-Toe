@@ -1,4 +1,8 @@
-.game{
+body{
+    background-color: #AFEEEE;
+}
+
+.flex-game{
     background-image: url(Assets/board.png);
     width: 400px;
     height: 400px;
@@ -7,15 +11,28 @@
     position: relative;
     margin: 150 auto;
     background-position: center center;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 h1{
     text-align: center;
-    color: #6b5b95;
+    color: #724dd0;
 }
 
-.section{
+/* .section{
     height: 133px;
     width: 133px;
     float: left;
+    background-color: blue;
+} */
+
+.flex-game > div{ /*Selects all div decendants of class flex-game*/
+    margin-top: 3;
+    margin-bottom: 5;
+    margin-left: 10;
+    margin-right: 3;
+    width: 100px;
+    padding: 10px;
+    /* background-color: blue; */
 }
