@@ -1,0 +1,19 @@
+.game{
+    background-image: url(Assets/board.png);
+    width: 420px;
+    height: 420px;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    position: relative;
+    margin: 150 auto;
+    background-position: center center;
+}
+
+/* h1{
+    text-align: center;
+    color: #6b5b95;
+} */
+
+/* .section{
+    
+} */
