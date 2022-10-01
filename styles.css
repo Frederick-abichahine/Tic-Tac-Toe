@@ -1,5 +1,7 @@
 body{
-    background-color: #AFEEEE;
+    /* background-color: #AFEEEE; */
+    background-color: #88221ec7;
+    background-image: url(Assets/wood_pattern.png);
 }
 
 .flex-game{
@@ -17,7 +19,7 @@ body{
 
 h1{
     text-align: center;
-    color: #724dd0;
+    color: #350000;
 }
 
 /* .section{
