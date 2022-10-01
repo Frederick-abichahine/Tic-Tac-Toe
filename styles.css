@@ -1,7 +1,7 @@
 .game{
     background-image: url(Assets/board.png);
-    width: 420px;
-    height: 420px;
+    width: 400px;
+    height: 400px;
     background-repeat: no-repeat;
     background-size: 100% 100%;
     position: relative;
@@ -9,11 +9,13 @@
     background-position: center center;
 }
 
-/* h1{
+h1{
     text-align: center;
     color: #6b5b95;
-} */
+}
 
-/* .section{
-    
-} */
+.section{
+    height: 133px;
+    width: 133px;
+    float: left;
+}
