@@ -54,29 +54,38 @@ const checkSection = (section) => {
     //clickSection(best_move, ai_player)    
 } 
 
-const clickSection = (section, player) => {
+// -------------------------------------------
 
+const clickSection = (section, player) => {
+    
     game_board[section] = true
-    const cell = document.getElementById(section)
+    const section_id = document.getElementById(section) 
 
     if (player == "red_coin"){
-        cell.className += " red-coin"
+        section_id.className += " red-coin"
     }
     else if (player == "yellow_coin"){
-        cell.className += " yellow-coin"
+        section_id.className += " yellow-coin"
     }
+    console.log(checkIfEmpty())
 }
 
 // -------------------------------------------
 
-const clickRestart = () => {
-    document.location.reload(true) 
+const checkIfEmpty = () => { //this function filters the array by creating a new one and returns it without the positions equal to true
+    return game_board.filter(x => x == false)
 }
 
 // -------------------------------------------
 
 const minimax = () => {
 
+}
+
+// -------------------------------------------
+
+const clickRestart = () => {
+    document.location.reload(true) 
 }
 
 // -------------------------------------------
