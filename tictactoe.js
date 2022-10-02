@@ -1,27 +1,49 @@
 //  Tic-Tac-Toe Game
 //  Frederick Abi Chahine
 
-// ###################################
-//           Main function
-// ###################################
+// ###########################################
+//      Declaring / Initializing variables
+// ###########################################
+
+win_state_matrix = [
+    ["top_left", "top_center", "top_right"],
+    ["center_left", "center", "center_right"],
+    ["bottom_left", "bottom_center", "bottom_right"],
+    ["top_left", "center_left", "bottom_left"],
+    ["top_center", "center", "bottom_center"],
+    ["top_right", "center_right", "bottom_right"],
+    ["top_left", "center", "bottom_right"],
+    ["top_right", "center", "bottom_left"],
+]
+
+game_board = [
+    [false, false, false],
+    [false, false, false],
+    [false, false, false]
+]
+
+// ###########################################
+//                Main function
+// ###########################################
 
 const main = () => {
     const sections = document.querySelectorAll(".section")
 
     for(let i = 0; i<sections.length; i++){
-        sections[i].onclick = function(){tester(sections[i])};
+        sections[i].onclick = function(){clickSection(sections[i])};
     }
 }
 
 main()
 
-// ###################################
-//          Other functions
-// ###################################
+// ###########################################
+//               Other functions
+// ###########################################
 
-let tester = (x) => {
+const clickSection = (x) => {
     if (x.id == "top_left"){
         x.style.backgroundColor = "red"
+        //x.style.background = url(Assets/red.png)
     }
     else if (x.id == "top_center"){
         x.style.backgroundColor = "blue"
