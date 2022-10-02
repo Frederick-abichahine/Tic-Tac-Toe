@@ -1,6 +1,5 @@
 body{
-    /* background-color: #AFEEEE; */
-    background-color: #88221ec7;
+    background-color: #b64a47a9;
     background-image: url(Assets/wood_pattern.png);
 }
 
@@ -20,6 +19,12 @@ body{
 h1{
     text-align: center;
     color: #350000;
+}
+
+.drop{
+    margin: 60 100;
+    
+
 }
 
 /* .section{
