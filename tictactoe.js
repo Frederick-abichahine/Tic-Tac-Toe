@@ -46,12 +46,12 @@ const checkSection = (section) => {
 
     if (!(game_board[section.target.id])){
         clickSection(section.target.id, human_player)
+
+        if (!(checkIfTie()) && !(checkIfWin(game_board, human_player))){
+            //calculate best move
+            //clickSection(best_move, ai_player)   
+        }
     }
-    
-    //Check AI win or tie
-    //if no win or tie
-    //calculate best move
-    //clickSection(best_move, ai_player)    
 } 
 
 // -------------------------------------------
@@ -94,12 +94,22 @@ const checkIfTie = () => {
 
 const checkIfWin = () => {
 
+    
 }
 
 // -------------------------------------------
 
-const checkIfEnd = () => {
+const endGame = (z) => { //pass parameter later
 
+    for(let i = 0; i<win_state_matrix[z].length; i++){
+        // here I will put the stripe through / color etc... design for win or loss
+    }
+
+    for(let i = 0; i<sections.length; i++){
+        sections[i].removeEventListener("click", checkSection, false)
+    }
+
+    //declare winner / loser
 }
 
 // -------------------------------------------
