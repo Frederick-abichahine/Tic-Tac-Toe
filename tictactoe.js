@@ -71,6 +71,7 @@ const clickSection = (section, player) => {
 // -------------------------------------------
 
 const checkIfEmpty = () => { //this function filters the array by creating a new one and returns it without the positions equal to true
+    
     return game_board.filter(x => x == false)
 }
 
@@ -113,8 +114,22 @@ const endGame = (z) => { //pass parameter later
 
 // -------------------------------------------
 
-const minimax = () => {
+const minimax = (game_board, player) => {
 
+    let store_availability = checkIfEmpty()
+    if (checkIfWin(game_board, human_player)){
+        return {score:-10}
+    }
+
+    else if (checkIfWin(game_board, ai_player)){
+        return {score:+10}
+    }
+
+    else if (store_availability == 0){
+        return {score:0}
+    }
+
+    
 }
 
 // -------------------------------------------
