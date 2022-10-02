@@ -23,7 +23,7 @@ let game_board = [
 ]
 
 let restart
-let red_coin = document.getElementById("red")
+const red_coin = document.getElementById("red")
 const yellow_coin = document.getElementById("yellow")
 
 // ###########################################
@@ -49,7 +49,7 @@ main()
 const clickSection = (x) => {
     if (x.id == "top_left" && !(game_board[0][0])){
         //x.style.backgroundImage="url('Assets/red.png')";
-        red_coin.style.top = 220 + "px"
+        red_coin.style.top = 155 + "px"
         red_coin.style.right = 130 + "px"
         red_coin.style.opacity = 1
         //red_coin.style.backgroundImage= "url('Assets/red.png')"
@@ -58,58 +58,57 @@ const clickSection = (x) => {
     }
     else if (x.id == "top_center" && !(game_board[0][1])){
         //x.style.backgroundColor = "blue"
-        red_coin.style.top = 220 + "px"
+        red_coin.style.top = 155 + "px"
         red_coin.style.opacity = 1
         game_board[0][1] = true
     }
     else if (x.id == "top_right" && !(game_board[0][2])){
         //x.style.backgroundColor = "green"
-        red_coin.style.top = 220 + "px"
+        red_coin.style.top = 155 + "px"
         red_coin.style.left = 130 + "px"
         red_coin.style.opacity = 1
         game_board[0][2] = true
     }
     else if (x.id == "center_left" && !(game_board[1][0])){
         //x.style.backgroundColor = "yellow"
-        red_coin.style.top = 353 + "px"
+        red_coin.style.top = 295 + "px"
         red_coin.style.right = 130 + "px"
         red_coin.style.opacity = 1
         game_board[1][0] = true
     }
     else if (x.id == "center" && !(game_board[1][1])){
         //x.style.backgroundColor = "orange"
-        red_coin.style.top = 353 + "px"
+        red_coin.style.top = 295 + "px"
         red_coin.style.opacity = 1
         game_board[1][1] = true
     }
     else if (x.id == "center_right" && !(game_board[1][2])){
         //x.style.backgroundColor = "brown"
-        red_coin.style.top = 353 + "px"
+        red_coin.style.top = 295 + "px"
         red_coin.style.left = 130 + "px"
         red_coin.style.opacity = 1
         game_board[1][2] = true
     }
     else if (x.id == "bottom_left" && !(game_board[2][0])){
         //x.style.backgroundColor = "black"
-        red_coin.style.top = 485 + "px"
+        red_coin.style.top = 425 + "px"
         red_coin.style.right = 130 + "px"
         red_coin.style.opacity = 1
         game_board[2][0] = true
     }
     else if (x.id == "bottom_center" && !(game_board[2][1])){
         //x.style.backgroundColor = "pink"
-        red_coin.style.top = 485 + "px"
+        red_coin.style.top = 425 + "px"
         red_coin.style.opacity = 1
         game_board[2][1] = true
     }
     else if (x.id == "bottom_right" && !(game_board[2][2])){
         //x.style.backgroundColor = "purple"
-        red_coin.style.top = 485 + "px"
+        red_coin.style.top = 425 + "px"
         red_coin.style.left = 130 + "px"
         red_coin.style.opacity = 1
         game_board[2][2] = true
     }
-    console.log(game_board[0][0])
 }
 
 // -------------------------------------------

@@ -26,7 +26,7 @@ body{
     background-repeat: no-repeat;
     background-size: 100% 100%;
     position: relative;
-    margin: 100 auto;
+    margin: 40 auto;
     background-position: center center;
     display: flex;
     flex-wrap: wrap;
