@@ -32,7 +32,6 @@ const main = () => {
     restart.onclick = clickRestart
 
     for(let i = 0; i<sections.length; i++){
-        //sections[i].onclick = function(){clickSection(sections[i])};
         sections[i].addEventListener("click", checkSection, false)
     }
 }
@@ -47,8 +46,7 @@ const checkSection = (section) => {
         clickSection(section.target.id, human_player)
 
         if (!(checkIfTie()) && !(checkIfWin(game_board, human_player))){
-            //calculate best move
-            //clickSection(best_move, ai_player)   
+            clickSection(calculateBestMove(), ai_player)
         }
     }
 } 
@@ -65,6 +63,12 @@ const clickSection = (section, player) => {
     }
     else if (player == "yellow_coin"){
         section_id.className += " yellow-coin"
+    }
+
+    let win = checkIfWin(game_board, player)
+
+    if (win){
+        endGame(win)
     }
 }
 
@@ -92,17 +96,27 @@ const checkIfTie = () => {
 
 // -------------------------------------------
 
-const checkIfWin = () => {
+const checkIfWin = (game_board, player) => {
 
-    
+    let moves = game_board.reduce((a, e, i) => (e == player) ? a.concat(i) : a, [])
+    let win = null
+    for (let [i, j] of win_state_matrix.entries()) {
+        if (j.every(x => moves.indexOf(x) > -1)) {
+            win = { index: i, player: player }
+            break
+        }
+    }
+    return win;
+
 }
 
 // -------------------------------------------
 
-const endGame = (z) => { //pass parameter later
+const endGame = (win) => { //pass parameter later
 
-    for(let i = 0; i<win_state_matrix[z].length; i++){
+    for(let i = 0; i<win_state_matrix[win].length; i++){
         // here I will put the stripe through / color etc... design for win or loss
+        console.log("design")
     }
 
     for(let i = 0; i<sections.length; i++){
@@ -153,7 +167,7 @@ const minimax = (game_board, player) => {
     let best_index
 
     if (player == ai_player){
-        let ultimate_score = -Infinity
+        let ultimate_score = -100000 //-Infinity
 
         for(let i = 0; i<progress.length; i++){
             
@@ -165,7 +179,7 @@ const minimax = (game_board, player) => {
     }
 
     else if (player == human_player){
-        let ultimate_score = Infinity
+        let ultimate_score = 100000 //Infinity
 
         for(let i = 0; i<progress.length; i++){
             
