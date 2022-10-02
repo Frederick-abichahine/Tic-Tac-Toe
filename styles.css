@@ -57,26 +57,26 @@ body{
 
 .red-coin{ /*add invalid when yellow is playing*/
     background-image: url(Assets/red.png);
-    height: 100px;
-    width: 100px;
+    /* height: 100px;
+    width: 100px; */
     background-position: center center;
     background-repeat: no-repeat;
     background-size: 80% 80%;
     position: relative;
-    opacity: 0.3;
+    opacity: 1;
     margin: 0 auto;
 }
 
 
-.yellow-coin:invalid{ /*add invalid when red is playing*/
+.yellow-coin{ /*add invalid when red is playing*/
     background-image: url(Assets/yellow.png);
-    height: 100px;
-    width: 100px;
+    /* height: 100px;
+    width: 100px; */
     background-position: center center;
     background-repeat: no-repeat;
     background-size: 80% 80%;
     position: relative;
-    opacity: 0.3;
+    opacity: 1;
     margin: 0 auto;
 }
 
