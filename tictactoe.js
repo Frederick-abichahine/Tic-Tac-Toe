@@ -1,39 +1,50 @@
-//Tic-Tac-Toe Game - Frederick Abi Chahine
+//  Tic-Tac-Toe Game
+//  Frederick Abi Chahine
 
-let click1
-let click2
-let click3
-let click4
-let click5
-let click6
-let click7
-let click8
-let click9
-let sections
+// ###################################
+//           Main function
+// ###################################
 
-window.onload = () => {
-    sections = document.getElementsByClassName("section")
+const main = () => {
+    const sections = document.querySelectorAll(".section")
 
-    click1 = document.getElementById("top_left")
-    click2 = document.getElementById("top_center")
-    click3 = document.getElementById("top_right")
-
-    click1.onclick = test
-    click2.onclick = test2
-    click3.onclick = test3
-    
-    // sections.onclick = test
-    // for(let i = 0; i<sections.length; i++){
-    //     sections[i].onclick = test(i)
-    // }
+    for(let i = 0; i<sections.length; i++){
+        sections[i].onclick = function(){tester(sections[i])};
+    }
 }
 
-let test = () => {
-    click1.style.backgroundColor = "red"   
-}
-let test2 = () => {
-    click2.style.backgroundColor = "blue"
-}
-let test3 = () => {
-    click3.style.backgroundColor = "green"
+main()
+
+// ###################################
+//          Other functions
+// ###################################
+
+let tester = (x) => {
+    if (x.id == "top_left"){
+        x.style.backgroundColor = "red"
+    }
+    else if (x.id == "top_center"){
+        x.style.backgroundColor = "blue"
+    }
+    else if (x.id == "top_right"){
+        x.style.backgroundColor = "green"
+    }
+    else if (x.id == "center_left"){
+        x.style.backgroundColor = "yellow"
+    }
+    else if (x.id == "center"){
+        x.style.backgroundColor = "orange"
+    }
+    else if (x.id == "center_right"){
+        x.style.backgroundColor = "brown"
+    }
+    else if (x.id == "bottom_left"){
+        x.style.backgroundColor = "black"
+    }
+    else if (x.id == "bottom_center"){
+        x.style.backgroundColor = "pink"
+    }
+    else if (x.id == "bottom_right"){
+        x.style.backgroundColor = "purple"
+    }
 }
