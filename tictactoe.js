@@ -19,8 +19,8 @@ let win_state_matrix = [
 let game_board = [false, false, false, false, false, false, false, false, false]
 
 let restart
-let human_player = "red_coin"
-let ai_player = "yellow_coin"
+const human_player = "red_coin"
+const ai_player = "yellow_coin"
 
 // ###########################################
 //                Main function
@@ -33,7 +33,8 @@ const main = () => {
     restart.onclick = clickRestart
 
     for(let i = 0; i<sections.length; i++){
-        sections[i].onclick = function(){clickSection(sections[i])};
+        //sections[i].onclick = function(){clickSection(sections[i])};
+        sections[i].addEventListener("click", checkSection, false)
     }
 }
 
@@ -42,8 +43,9 @@ const main = () => {
 // ###########################################
 
 const checkSection = (section) => {
-    if (!(game_board[section.id])){
-        clickSection(section.id, human_player)
+
+    if (!(game_board[section.target.id])){
+        clickSection(section.target.id, human_player)
     }
     
     //Check AI win or tie
@@ -55,12 +57,13 @@ const checkSection = (section) => {
 const clickSection = (section, player) => {
 
     game_board[section] = true
+    const cell = document.getElementById(section)
 
     if (player == "red_coin"){
-        section.className += " red-coin"
+        cell.className += " red-coin"
     }
     else if (player == "yellow_coin"){
-        section.className += " yellow-coin"
+        cell.className += " yellow-coin"
     }
 }
 
@@ -75,10 +78,6 @@ const clickRestart = () => {
 const minimax = () => {
 
 }
-
-// -------------------------------------------
-
-
 
 // -------------------------------------------
 
