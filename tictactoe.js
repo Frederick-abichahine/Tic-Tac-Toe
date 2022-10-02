@@ -129,6 +129,27 @@ const minimax = (game_board, player) => {
         return {score:0}
     }
 
+    let progress = []
+
+    for(let i = 0; i<store_availability.length; i++){
+        let single_progression = {}
+        single_progression.index = game_board[store_availability[i]]
+        game_board[store_availability[i]] = player //using it like a temp variable
+
+        if (player == ai_player){
+            let outcome = minimax(game_board, human_player)
+            single_progression.score = outcome.score // to keep track of score to see if you are winning or losing
+        }
+
+        else if (player == human_player){
+            let outcome = minimax(game_board, ai_player)
+            single_progression.score = outcome.score
+        }
+
+        game_board[store_availability[i]] = single_progression.index
+        progress.push(single_progression) //adding to the progress array
+    }
+
     
 }
 
