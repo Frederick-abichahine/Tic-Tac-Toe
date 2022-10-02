@@ -47,35 +47,69 @@ main()
 // ###########################################
 
 const clickSection = (x) => {
-    if (x.id == "top_left"){
-        x.style.backgroundImage="url('Assets/red.png')";
-        //red_coin.style.display = "inline-block"
+    if (x.id == "top_left" && !(game_board[0][0])){
+        //x.style.backgroundImage="url('Assets/red.png')";
+        red_coin.style.top = 220 + "px"
+        red_coin.style.right = 130 + "px"
+        red_coin.style.opacity = 1
         //red_coin.style.backgroundImage= "url('Assets/red.png')"
+        //document.getElementById("red").className = "red-coin";
+        game_board[0][0] = true
     }
-    else if (x.id == "top_center"){
-        x.style.backgroundColor = "blue"
+    else if (x.id == "top_center" && !(game_board[0][1])){
+        //x.style.backgroundColor = "blue"
+        red_coin.style.top = 220 + "px"
+        red_coin.style.opacity = 1
+        game_board[0][1] = true
     }
-    else if (x.id == "top_right"){
-        x.style.backgroundColor = "green"
+    else if (x.id == "top_right" && !(game_board[0][2])){
+        //x.style.backgroundColor = "green"
+        red_coin.style.top = 220 + "px"
+        red_coin.style.left = 130 + "px"
+        red_coin.style.opacity = 1
+        game_board[0][2] = true
     }
-    else if (x.id == "center_left"){
-        x.style.backgroundColor = "yellow"
+    else if (x.id == "center_left" && !(game_board[1][0])){
+        //x.style.backgroundColor = "yellow"
+        red_coin.style.top = 353 + "px"
+        red_coin.style.right = 130 + "px"
+        red_coin.style.opacity = 1
+        game_board[1][0] = true
     }
-    else if (x.id == "center"){
-        x.style.backgroundColor = "orange"
+    else if (x.id == "center" && !(game_board[1][1])){
+        //x.style.backgroundColor = "orange"
+        red_coin.style.top = 353 + "px"
+        red_coin.style.opacity = 1
+        game_board[1][1] = true
     }
-    else if (x.id == "center_right"){
-        x.style.backgroundColor = "brown"
+    else if (x.id == "center_right" && !(game_board[1][2])){
+        //x.style.backgroundColor = "brown"
+        red_coin.style.top = 353 + "px"
+        red_coin.style.left = 130 + "px"
+        red_coin.style.opacity = 1
+        game_board[1][2] = true
     }
-    else if (x.id == "bottom_left"){
-        x.style.backgroundColor = "black"
+    else if (x.id == "bottom_left" && !(game_board[2][0])){
+        //x.style.backgroundColor = "black"
+        red_coin.style.top = 485 + "px"
+        red_coin.style.right = 130 + "px"
+        red_coin.style.opacity = 1
+        game_board[2][0] = true
     }
-    else if (x.id == "bottom_center"){
-        x.style.backgroundColor = "pink"
+    else if (x.id == "bottom_center" && !(game_board[2][1])){
+        //x.style.backgroundColor = "pink"
+        red_coin.style.top = 485 + "px"
+        red_coin.style.opacity = 1
+        game_board[2][1] = true
     }
-    else if (x.id == "bottom_right"){
-        x.style.backgroundColor = "purple"
+    else if (x.id == "bottom_right" && !(game_board[2][2])){
+        //x.style.backgroundColor = "purple"
+        red_coin.style.top = 485 + "px"
+        red_coin.style.left = 130 + "px"
+        red_coin.style.opacity = 1
+        game_board[2][2] = true
     }
+    console.log(game_board[0][0])
 }
 
 // -------------------------------------------
@@ -87,6 +121,6 @@ const clickRestart = () => {
 // -------------------------------------------
 
 const minimax = () => {
-    
+
 }
 

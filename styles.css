@@ -47,13 +47,26 @@ body{
     background-position: center center; */
 }
 
-.red-coin{
-    /* background-image: url(Assets/red.png); */
+/* .red-coin{
+    background-image: url(Assets/red.png);
     background-size: 80% 80%;
     background-repeat: no-repeat;
     position: relative;
     background-position: center center;
+} */
+
+.red-coin{
+    background-image: url(Assets/red.png);
+    height: 100px;
+    width: 100px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 80% 80%;
+    position: relative;
+    opacity: 0.3;
+    margin: 0 auto;
 }
+
 
 .yellow-coin{
     background-image: url(Assets/yellow.png);
