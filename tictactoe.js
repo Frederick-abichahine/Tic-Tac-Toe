@@ -17,7 +17,7 @@ let win_state_matrix = [
 ]
 
 let game_board = [false, false, false, false, false, false, false, false, false]
-
+const sections = document.querySelectorAll(".section")
 let restart
 const human_player = "red_coin"
 const ai_player = "yellow_coin"
@@ -28,7 +28,6 @@ const ai_player = "yellow_coin"
 
 const main = () => {
 
-    const sections = document.querySelectorAll(".section")
     restart = document.getElementById("restart")
     restart.onclick = clickRestart
 
@@ -116,6 +115,13 @@ const endGame = (z) => { //pass parameter later
 
 const minimax = () => {
 
+}
+
+// -------------------------------------------
+
+const calculateBestMove = () => { //minimax will return the best position and this function will get the index of it
+    
+    return minimax(game_board, ai_player).index
 }
 
 // -------------------------------------------
