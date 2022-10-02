@@ -20,21 +20,20 @@ let game_board = [false, false, false, false, false, false, false, false, false]
 
 let restart
 let human_player = "red_coin"
-let ai_layer = "yellow_coin"
+let ai_player = "yellow_coin"
 
 // ###########################################
 //                Main function
 // ###########################################
 
 const main = () => {
+
     const sections = document.querySelectorAll(".section")
     restart = document.getElementById("restart")
     restart.onclick = clickRestart
-    // console.log(player_turn)
+
     for(let i = 0; i<sections.length; i++){
         sections[i].onclick = function(){clickSection(sections[i])};
-        //sections[i].onclick = changeTurn
-        //console.log(player_turn)
     }
 }
 
@@ -42,21 +41,27 @@ const main = () => {
 //               Other functions
 // ###########################################
 
-//const 
-
-const clickSection = (x, player) => {
-    if (!(game_board[x.id])){
-        
-        game_board[x.id] = true
-
-        if (player == "red_coin"){
-            x.className += " red-coin"
-        }
-        else if (player == "yellow_coin"){
-            x.className += " yellow-coin"
-        }
+const checkSection = (section) => {
+    if (!(game_board[section.id])){
+        clickSection(section.id, human_player)
     }
+    
+    //Check AI win or tie
+    //if no win or tie
+    //calculate best move
+    //clickSection(best_move, ai_player)    
+} 
 
+const clickSection = (section, player) => {
+
+    game_board[section] = true
+
+    if (player == "red_coin"){
+        section.className += " red-coin"
+    }
+    else if (player == "yellow_coin"){
+        section.className += " yellow-coin"
+    }
 }
 
 // -------------------------------------------
