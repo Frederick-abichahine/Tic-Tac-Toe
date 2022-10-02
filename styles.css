@@ -55,7 +55,7 @@ body{
     background-position: center center;
 } */
 
-.red-coin{
+.red-coin{ /*add invalid when yellow is playing*/
     background-image: url(Assets/red.png);
     height: 100px;
     width: 100px;
@@ -68,12 +68,16 @@ body{
 }
 
 
-.yellow-coin{
+.yellow-coin:invalid{ /*add invalid when red is playing*/
     background-image: url(Assets/yellow.png);
-    background-size: 80% 80%;
-    background-repeat: no-repeat;
-    position: relative;
+    height: 100px;
+    width: 100px;
     background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 80% 80%;
+    position: relative;
+    opacity: 0.3;
+    margin: 0 auto;
 }
 
 .flex-game > div{ /*Selects all div decendants of class flex-game*/
@@ -83,7 +87,6 @@ body{
     margin-right: 3;
     width: 100px;
     padding: 10px;
-    /* background-color: blue; */
 }
 
 #restart {
@@ -108,7 +111,7 @@ body{
 	background: #0787B3;
 }
 
-#restart:disabled {
+/* #restart:disabled {
 	color: #444;
 	background: #CECECE;
-}
+} */
