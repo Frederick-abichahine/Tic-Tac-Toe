@@ -67,13 +67,39 @@ const clickSection = (section, player) => {
     else if (player == "yellow_coin"){
         section_id.className += " yellow-coin"
     }
-    console.log(checkIfEmpty())
 }
 
 // -------------------------------------------
 
 const checkIfEmpty = () => { //this function filters the array by creating a new one and returns it without the positions equal to true
     return game_board.filter(x => x == false)
+}
+
+// -------------------------------------------
+
+const checkIfTie = () => {
+
+    if (checkIfEmpty().length == 0){
+
+        for(let i = 0; i<sections.length; i++){
+            sections[i].removeEventListener("click", checkSection, false)
+        }
+        // Display on screen that it is a Tie
+        return true
+    }
+    return false
+}
+
+// -------------------------------------------
+
+const checkIfWin = () => {
+
+}
+
+// -------------------------------------------
+
+const checkIfEnd = () => {
+
 }
 
 // -------------------------------------------
