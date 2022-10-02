@@ -96,9 +96,9 @@ const checkIfTie = () => {
 
 // -------------------------------------------
 
-const checkIfWin = (game_board, player) => {
+const checkIfWin = (game_matrix, player) => {
 
-    let moves = game_board.reduce((a, e, i) => (e == player) ? a.concat(i) : a, [])
+    let moves = game_matrix.reduce((s, t, w) => (t == player) ? s.concat(w) : s, [])
     let win = null
     for (let [i, j] of win_state_matrix.entries()) {
         if (j.every(x => moves.indexOf(x) > -1)) {
@@ -106,17 +106,21 @@ const checkIfWin = (game_board, player) => {
             break
         }
     }
-    return win;
-
+    return win
 }
 
 // -------------------------------------------
 
 const endGame = (win) => { //pass parameter later
 
-    for(let i = 0; i<win_state_matrix[win].length; i++){
+    // for(let i = 0; i<win_state_matrix[win].length; i++){
+    //     // here I will put the stripe through / color etc... design for win or loss
+    //     console.log("design")
+    // }
+
+    for(let index of win_state_matrix[win.index]){
         // here I will put the stripe through / color etc... design for win or loss
-        console.log("design")
+        document.getElementById(index).style.backgroundColor = win.player == human_player ? "green":"green"
     }
 
     for(let i = 0; i<sections.length; i++){
@@ -128,18 +132,25 @@ const endGame = (win) => { //pass parameter later
 
 // -------------------------------------------
 
-const minimax = (game_board, player) => {
+const calculateBestMove = () => { //minimax will return the best position and this function will get the index of it
+    
+    return minimax(game_board, ai_player).index
+}
+
+// -------------------------------------------
+
+const minimax = (game_matrix, player) => {
 
     let store_availability = checkIfEmpty()
-    if (checkIfWin(game_board, human_player)){
+    if (checkIfWin(game_matrix, human_player)){
         return {score:-10}
     }
 
-    else if (checkIfWin(game_board, ai_player)){
+    else if (checkIfWin(game_matrix, ai_player)){
         return {score:+10}
     }
 
-    else if (store_availability == 0){
+    else if (store_availability.length == 0){
         return {score:0}
     }
 
@@ -147,27 +158,27 @@ const minimax = (game_board, player) => {
 
     for(let i = 0; i<store_availability.length; i++){
         let single_progression = {}
-        single_progression.index = game_board[store_availability[i]]
-        game_board[store_availability[i]] = player //using it like a temp variable
+        single_progression.index = game_matrix[store_availability[i]]
+        game_matrix[store_availability[i]] = player //using it like a temp variable
 
         if (player == ai_player){
-            let outcome = minimax(game_board, human_player)
+            let outcome = minimax(game_matrix, human_player)
             single_progression.score = outcome.score // to keep track of score to see if you are winning or losing
         }
 
         else if (player == human_player){
-            let outcome = minimax(game_board, ai_player)
+            let outcome = minimax(game_matrix, ai_player)
             single_progression.score = outcome.score
         }
 
-        game_board[store_availability[i]] = single_progression.index
+        game_matrix[store_availability[i]] = single_progression.index
         progress.push(single_progression) //adding to the progress array
     }
 
     let best_index
 
     if (player == ai_player){
-        let ultimate_score = -100000 //-Infinity
+        let ultimate_score = -1000 //-Infinity
 
         for(let i = 0; i<progress.length; i++){
             
@@ -179,7 +190,7 @@ const minimax = (game_board, player) => {
     }
 
     else if (player == human_player){
-        let ultimate_score = 100000 //Infinity
+        let ultimate_score = 1000 //Infinity
 
         for(let i = 0; i<progress.length; i++){
             
@@ -191,13 +202,6 @@ const minimax = (game_board, player) => {
     }
 
     return progress[best_index]
-}
-
-// -------------------------------------------
-
-const calculateBestMove = () => { //minimax will return the best position and this function will get the index of it
-    
-    return minimax(game_board, ai_player).index
 }
 
 // -------------------------------------------

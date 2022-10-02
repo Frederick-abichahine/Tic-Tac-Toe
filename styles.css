@@ -1,6 +1,5 @@
 h1{
     text-align: center;
-    /* background-color: #00AEEA; */
     display: block;
 	padding: 20px;
 	margin-left: auto;
@@ -32,10 +31,6 @@ body{
     flex-wrap: wrap;
 }
 
-/* .drop{
-    margin: 60 100;
-} */
-
 .section:hover{
     /* background-image: url(Assets/red.png); */
     background-color: rgb(82, 132, 219);
@@ -47,18 +42,8 @@ body{
     background-position: center center; */
 }
 
-/* .red-coin{
+.red-coin{
     background-image: url(Assets/red.png);
-    background-size: 80% 80%;
-    background-repeat: no-repeat;
-    position: relative;
-    background-position: center center;
-} */
-
-.red-coin{ /*add invalid when yellow is playing*/
-    background-image: url(Assets/red.png);
-    /* height: 100px;
-    width: 100px; */
     background-position: center center;
     background-repeat: no-repeat;
     background-size: 80% 80%;
@@ -68,10 +53,8 @@ body{
 }
 
 
-.yellow-coin{ /*add invalid when red is playing*/
+.yellow-coin{
     background-image: url(Assets/yellow.png);
-    /* height: 100px;
-    width: 100px; */
     background-position: center center;
     background-repeat: no-repeat;
     background-size: 80% 80%;
@@ -110,8 +93,3 @@ body{
 #restart:active {
 	background: #0787B3;
 }
-
-/* #restart:disabled {
-	color: #444;
-	background: #CECECE;
-} */
