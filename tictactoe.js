@@ -150,7 +150,33 @@ const minimax = (game_board, player) => {
         progress.push(single_progression) //adding to the progress array
     }
 
-    
+    let best_index
+
+    if (player == ai_player){
+        let ultimate_score = -Infinity
+
+        for(let i = 0; i<progress.length; i++){
+            
+            if (progress[i].score > ultimate_score){
+                ultimate_score = progress[i].score
+                best_index = i
+            }
+        }
+    }
+
+    else if (player == human_player){
+        let ultimate_score = Infinity
+
+        for(let i = 0; i<progress.length; i++){
+            
+            if (progress[i].score < ultimate_score){
+                ultimate_score = progress[i].score
+                best_index = i
+            }
+        }
+    }
+
+    return progress[best_index]
 }
 
 // -------------------------------------------
