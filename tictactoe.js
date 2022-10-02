@@ -5,7 +5,7 @@
 //      Declaring / Initializing variables
 // ###########################################
 
-win_state_matrix = [
+let win_state_matrix = [
     ["top_left", "top_center", "top_right"],
     ["center_left", "center", "center_right"],
     ["bottom_left", "bottom_center", "bottom_right"],
@@ -16,11 +16,15 @@ win_state_matrix = [
     ["top_right", "center", "bottom_left"],
 ]
 
-game_board = [
+let game_board = [
     [false, false, false],
     [false, false, false],
     [false, false, false]
 ]
+
+let restart
+let red_coin = document.getElementById("red")
+const yellow_coin = document.getElementById("yellow")
 
 // ###########################################
 //                Main function
@@ -28,6 +32,8 @@ game_board = [
 
 const main = () => {
     const sections = document.querySelectorAll(".section")
+    restart = document.getElementById("restart")
+    restart.onclick = function(){clickRestart()}
 
     for(let i = 0; i<sections.length; i++){
         sections[i].onclick = function(){clickSection(sections[i])};
@@ -42,8 +48,9 @@ main()
 
 const clickSection = (x) => {
     if (x.id == "top_left"){
-        x.style.backgroundColor = "red"
-        //x.style.background = url(Assets/red.png)
+        x.style.backgroundImage="url('Assets/red.png')";
+        //red_coin.style.display = "inline-block"
+        //red_coin.style.backgroundImage= "url('Assets/red.png')"
     }
     else if (x.id == "top_center"){
         x.style.backgroundColor = "blue"
@@ -70,3 +77,16 @@ const clickSection = (x) => {
         x.style.backgroundColor = "purple"
     }
 }
+
+// -------------------------------------------
+
+const clickRestart = () => {
+    document.location.reload(true) 
+}
+
+// -------------------------------------------
+
+const minimax = () => {
+    
+}
+

@@ -1,6 +1,17 @@
 h1{
     text-align: center;
-    color: #350000;
+    /* background-color: #00AEEA; */
+    display: block;
+	padding: 20px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 30%;
+	background: #00AEEA;
+	font-size: 2em;
+	color: #FFF;
+	border: none;
+	border-radius: 6px;
+    margin-top: 12;
 }
 
 body{
@@ -15,7 +26,7 @@ body{
     background-repeat: no-repeat;
     background-size: 100% 100%;
     position: relative;
-    margin: 150 auto;
+    margin: 100 auto;
     background-position: center center;
     display: flex;
     flex-wrap: wrap;
@@ -37,7 +48,7 @@ body{
 }
 
 .red-coin{
-    background-image: url(Assets/red.png);
+    /* background-image: url(Assets/red.png); */
     background-size: 80% 80%;
     background-repeat: no-repeat;
     position: relative;
@@ -60,4 +71,31 @@ body{
     width: 100px;
     padding: 10px;
     /* background-color: blue; */
+}
+
+#restart {
+	display: block;
+	padding: 10px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 200px;
+	background: #00AEEA;
+	font-size: 1.5em;
+	color: #FFF;
+	border: none;
+	border-radius: 6px;
+	cursor: pointer;
+}
+
+#restart:hover {
+	background: #1DC5FF;
+}
+
+#restart:active {
+	background: #0787B3;
+}
+
+#restart:disabled {
+	color: #444;
+	background: #CECECE;
 }
