@@ -111,16 +111,10 @@ const checkIfWin = (game_matrix, player) => {
 
 // -------------------------------------------
 
-const endGame = (win) => { //pass parameter later
-
-    // for(let i = 0; i<win_state_matrix[win].length; i++){
-    //     // here I will put the stripe through / color etc... design for win or loss
-    //     console.log("design")
-    // }
+const endGame = (win) => {
 
     for(let index of win_state_matrix[win.index]){
-        // here I will put the stripe through / color etc... design for win or loss
-        document.getElementById(index).style.backgroundColor = win.player == human_player ? "green":"red"
+        document.getElementById(index).style.backgroundColor = win.player == human_player ? "#00AEEA":"#00AEEA"
     }
 
     for(let i = 0; i<sections.length; i++){
@@ -178,7 +172,7 @@ const minimax = (game_matrix, player) => {
     let best_index
 
     if (player == ai_player){
-        let ultimate_score = -1000 //-Infinity
+        let ultimate_score = -Infinity
 
         for(let i = 0; i<progress.length; i++){
             
@@ -190,7 +184,7 @@ const minimax = (game_matrix, player) => {
     }
 
     else if (player == human_player){
-        let ultimate_score = 1000 //Infinity
+        let ultimate_score = Infinity
 
         for(let i = 0; i<progress.length; i++){
             
