@@ -6,17 +6,17 @@
 // ###########################################
 
 let win_state_matrix = [
-    [1, 2, 3],
-    [4, 5, 6],
-    [7, 8, 9],
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
     [1, 4, 7],
     [2, 5, 8],
-    [3, 6, 9],
-    [0, 5, 9],
-    [3, 5, 7]
+    [0, 4, 8],
+    [6, 4, 2]
 ]
 
-let game_board = [false, false, false, false, false, false, false, false, false]
+let game_board = [0, 1, 2, 3, 4, 5, 6, 7, 8]
 const sections = document.querySelectorAll(".section")
 let restart
 const human_player = "red_coin"
@@ -42,7 +42,7 @@ const main = () => {
 
 const checkSection = (section) => {
 
-    if (!(game_board[section.target.id])){
+    if (typeof(game_board[section.target.id]) == "number"){
         clickSection(section.target.id, human_player)
 
         if (!(checkIfTie()) && !(checkIfWin(game_board, human_player))){
@@ -55,7 +55,7 @@ const checkSection = (section) => {
 
 const clickSection = (section, player) => {
     
-    game_board[section] = true
+    game_board[section] = player
     const section_id = document.getElementById(section) 
 
     if (player == "red_coin"){
@@ -76,7 +76,7 @@ const clickSection = (section, player) => {
 
 const checkIfEmpty = () => { //this function filters the array by creating a new one and returns it without the positions equal to true
     
-    return game_board.filter(x => x == false)
+    return game_board.filter(x => typeof x == "number")
 }
 
 // -------------------------------------------
