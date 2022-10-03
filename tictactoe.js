@@ -88,7 +88,7 @@ const checkIfTie = () => {
         for(let i = 0; i<sections.length; i++){
             sections[i].removeEventListener("click", checkSection, false)
         }
-        // Display on screen that it is a Tie
+        document.getElementById("display-message").innerText = "It is a Tie!"
         return true
     }
     return false
@@ -120,14 +120,14 @@ const endGame = (win) => { //pass parameter later
 
     for(let index of win_state_matrix[win.index]){
         // here I will put the stripe through / color etc... design for win or loss
-        document.getElementById(index).style.backgroundColor = win.player == human_player ? "green":"green"
+        document.getElementById(index).style.backgroundColor = win.player == human_player ? "green":"red"
     }
 
     for(let i = 0; i<sections.length; i++){
         sections[i].removeEventListener("click", checkSection, false)
     }
 
-    //declare winner / loser
+    document.getElementById("display-message").innerText = win.player == human_player ? "You Win!":"You lost! :("
 }
 
 // -------------------------------------------
